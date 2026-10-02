@@ -1,372 +1,166 @@
-import React, { useState } from 'react';
-import { 
-  FiSearch, 
-  FiShoppingCart, 
-  FiLogOut, 
-  FiHeart, 
-  FiEye, 
-  FiMapPin, 
-  FiMail, 
-  FiPhone, 
-  FiArrowRight,
-  FiChevronRight
-} from 'react-icons/fi';
-import { 
-  FaFacebookF, 
-  FaInstagram, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaYoutube 
-} from 'react-icons/fa';
+import React from 'react';
+import { Button, IconButton } from '@mui/material';
+import { GitHub, LinkedIn, Email, ArrowForward, Terminal } from '@mui/icons-material';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-// --- FIGMA MA'LUMOTLARI ---
-const categories = [
-  { id: 1, name: 'House Plants', count: 33 },
-  { id: 2, name: 'Potter Plants', count: 12 },
-  { id: 3, name: 'Seeds', count: 65 },
-  { id: 4, name: 'Small Plants', count: 39 },
-  { id: 5, name: 'Big Plants', count: 23 },
-  { id: 6, name: 'Succulents', count: 17 },
-  { id: 7, name: 'Trerrariums', count: 19 },
-  { id: 8, name: 'Gardening', count: 13 },
-  { id: 9, name: 'Accessories', count: 18 },
-];
+export default function Portfolio() {
+  const projectImages = [
+    "/Снимок экрана 2026-10-02 091807.png",
+    "/Снимок экрана 2026-10-02 092101.png",
+    "/Снимок экрана 2026-10-02 091958.png",
+    "/Снимок экрана 2026-10-02 092457.png",
+    "/1.png",
+  ];
 
-const sizes = [
-  { id: 1, name: 'Small', count: 119 },
-  { id: 2, name: 'Medium', count: 86 },
-  { id: 3, name: 'Large', count: 78 },
-];
-
-const products = [
-  { id: 1, name: 'Barberton Daisy', price: '$119.00', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500' },
-  { id: 2, name: 'Angel Wing Begonia', price: '$169.00', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500' },
-  { id: 3, name: 'African Violet', price: '$199.00', oldPrice: '$229.00', discount: '13% OFF', img: 'https://images.unsplash.com/photo-1545241047-6083a3684587?w=500' },
-  { id: 4, name: 'Beach Spider Lily', price: '$129.00', img: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=500' },
-  { id: 5, name: 'Blushing Bromeliad', price: '$139.00', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500' },
-  { id: 6, name: 'Aluminum Plant', price: '$179.00', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500' },
-  { id: 7, name: "Bird's Nest Fern", price: '$99.00', img: 'https://images.unsplash.com/photo-1545241047-6083a3684587?w=500' },
-  { id: 8, name: 'Broadleaf Lady Palm', price: '$59.00', img: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=500' },
-  { id: 9, name: 'Chinese Evergreen', price: '$39.00', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500' },
-];
-
-const posts = [
-  { id: 1, date: 'September 12 | Read in 6 min', title: 'Cactus & Succulent Care Tips', desc: 'Cacti and succulents are easy care plants for any home or patio.', img: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=400' },
-  { id: 2, date: 'September 13 | Read in 2 min', title: 'Top 10 Succulents Goes With', desc: 'Best indoor plants to make your home look fresh and green.', img: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=400' },
-  { id: 3, date: 'September 15 | Read in 3 min', title: 'Interior Plant Decorating', desc: 'How to arrange your favorite house plants for maximum beauty.', img: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=400' },
-  { id: 4, date: 'September 18 | Read in 4 min', title: 'Best Houseplants For Beginners', desc: 'Start your plant journey with these easy-to-grow species.', img: 'https://images.unsplash.com/photo-1545241047-6083a3684587?w=400' },
-];
-
-function App() {
-  const [activeCategory, setActiveCategory] = useState('House Plants');
-  const [activeTab, setActiveTab] = useState('All Plants');
-  const [price, setPrice] = useState(250);
+  const techStack = ["React.js", "Tailwind CSS", "Material UI", "JavaScript (ES6+)", "Swiper.js", "Git & GitHub", "Bootstrap", "HTML", "CSS", "Sass"];
 
   return (
-    <div className="font-sans text-gray-700 bg-white min-h-screen max-w-[1200px] mx-auto px-4 sm:px-6">
-      
-      {/* 1. NAVBAR */}
-      <header className="flex items-center justify-between py-5 border-b border-green-500/20">
-        <div className="flex items-center space-x-2 cursor-pointer">
-          <div className="w-9 h-9 bg-green-500 rounded-full flex items-center justify-center text-white font-extrabold text-xl shadow-md">
-            G
-          </div>
-          <span className="text-xl font-black text-green-600 tracking-wider uppercase">GREENSHOP</span>
-        </div>
+    <div className="min-h-screen bg-[#070a12] text-gray-100 font-sans w-full max-w-full overflow-x-hidden relative">
 
-        <nav className="hidden md:flex space-x-10 text-sm font-medium text-gray-700">
-          <a href="#" className="text-green-600 font-bold border-b-2 border-green-500 pb-5 -mb-5">Home</a>
-          <a href="#" className="hover:text-green-600 transition">Shop</a>
-          <a href="#" className="hover:text-green-600 transition">Plant Care</a>
-          <a href="#" className="hover:text-green-600 transition">Blogs</a>
-        </nav>
+      <div className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-[120px] z-0" />
+      <div className="pointer-events-none fixed bottom-0 right-0 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[120px] z-0" />
 
-        <div className="flex items-center space-x-6">
-          <FiSearch className="w-5 h-5 cursor-pointer hover:text-green-600 transition" />
-          <div className="relative cursor-pointer">
-            <FiShoppingCart className="w-5 h-5 hover:text-green-600 transition" />
-            <span className="absolute -top-2 -right-2 bg-green-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold border-2 border-white">
-              6
-            </span>
+      <header className="w-full border-b border-gray-800/60 bg-[#070a12]/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2 font-black text-lg sm:text-xl tracking-wider text-white">
+            <Terminal className="text-cyan-400" />
+            <span>DEV<span className="text-cyan-400">.</span>PORTFOLIO</span>
           </div>
-          <button className="flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-md font-medium text-xs shadow-md transition">
-            <FiLogOut className="w-4 h-4" />
-            <span>Login</span>
-          </button>
+
+          <div className="flex items-center gap-2">
+            <IconButton 
+              component="a" 
+              href="https://github.com/madaminovdeveloper" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="!text-gray-400 hover:!text-cyan-400"
+            >
+              <GitHub />
+            </IconButton>
+            <IconButton 
+              component="a" 
+              href="https://t.me/uzmadaminov" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="!text-gray-400 hover:!text-cyan-400"
+            >
+              <Email />
+            </IconButton>
+          </div>
         </div>
       </header>
+      <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
-      {/* 2. HERO BANNER */}
-      <section className="bg-gradient-to-r from-emerald-50 via-gray-50 to-emerald-50/30 my-8 rounded-2xl p-8 md:p-12 flex flex-col-reverse md:flex-row items-center justify-between relative overflow-hidden">
-        <div className="max-w-lg space-y-4 mt-6 md:mt-0 z-10">
-          <h4 className="text-xs font-bold tracking-widest text-gray-500 uppercase">
-            WELCOME TO GREENSHOP
-          </h4>
-          <h1 className="text-4xl md:text-6xl font-black text-gray-800 uppercase leading-tight">
-            LET'S MAKE A BETTER <span className="text-green-500">PLANET</span>
-          </h1>
-          <p className="text-xs md:text-sm text-gray-500 leading-relaxed max-w-sm">
-            We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle.
-          </p>
-          <button className="bg-green-500 hover:bg-green-600 text-white font-bold text-xs px-7 py-3.5 rounded-md uppercase tracking-wider transition shadow-lg shadow-green-500/20">
-            SHOP NOW
-          </button>
-        </div>
-        <div className="w-full md:w-1/2 flex justify-center z-10">
-          <img 
-            src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600" 
-            alt="Hero Plant" 
-            className="w-72 md:w-96 object-contain drop-shadow-2xl hover:scale-105 transition duration-500" 
-          />
-        </div>
-      </section>
+          <div className="md:col-span-7 space-y-6 text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono tracking-wide">
+              <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              Madaminov Shukurullo
+            </div>
 
-      {/* 3. MAIN CONTENT (SIDEBAR + PRODUCTS) */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 my-12">
-        
-        {/* SIDEBAR */}
-        <aside className="bg-gray-50/80 p-5 rounded-xl space-y-8 border border-gray-100">
-          
-          {/* Categories */}
-          <div>
-            <h3 className="font-bold text-sm text-gray-800 mb-4 border-b border-gray-200 pb-2">Categories</h3>
-            <ul className="space-y-3 text-xs">
-              {categories.map((cat) => (
-                <li 
-                  key={cat.id} 
-                  onClick={() => setActiveCategory(cat.name)}
-                  className={`flex justify-between items-center cursor-pointer transition ${
-                    activeCategory === cat.name ? 'text-green-600 font-bold' : 'hover:text-green-600 text-gray-600'
-                  }`}
-                >
-                  <span>{cat.name}</span>
-                  <span>({cat.count})</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
+              Frontend va UI/UX <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500">
+                Dasturchi
+              </span>
+            </h1>
 
-          {/* Price Range Filter */}
-          <div>
-            <h3 className="font-bold text-sm text-gray-800 mb-4 border-b border-gray-200 pb-2">Price Range</h3>
-            <input 
-              type="range" 
-              min="39" 
-              max="1500" 
-              value={price} 
-              onChange={(e) => setPrice(e.target.value)}
-              className="w-full accent-green-500 cursor-pointer"
-            />
-            <p className="text-xs text-gray-600 mt-2">
-              Price: <span className="text-green-600 font-bold">$39 -${price}</span>
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
+              Foydalanuvchilar uchun qulay va tezkor bo'lgan zamonaviy web-ilovalarni yarataman.
             </p>
-            <button className="mt-3 w-full bg-green-500 text-white text-xs font-bold py-2 rounded hover:bg-green-600 transition">
-              Filter
-            </button>
-          </div>
-
-          {/* Size Filter */}
-          <div>
-            <h3 className="font-bold text-sm text-gray-800 mb-4 border-b border-gray-200 pb-2">Size</h3>
-            <ul className="space-y-3 text-xs">
-              {sizes.map((sz) => (
-                <li key={sz.id} className="flex justify-between items-center cursor-pointer hover:text-green-600 text-gray-600">
-                  <span>{sz.name}</span>
-                  <span>({sz.count})</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Super Sale Banner */}
-          <div className="bg-emerald-100/60 p-6 rounded-xl text-center relative overflow-hidden">
-            <h2 className="text-2xl font-black text-green-600">UP TO 75% OFF</h2>
-            <p className="text-xs text-gray-500 my-2">Super Sale Plants</p>
-            <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=300" alt="Sale" className="w-32 mx-auto my-2 rounded-lg" />
-          </div>
-
-        </aside>
-
-        {/* PRODUCTS SECTION */}
-        <main className="md:col-span-3">
-          
-          {/* Header Controls */}
-          <div className="flex justify-between items-center mb-6 text-xs border-b border-gray-100 pb-3">
-            <div className="flex space-x-6 font-medium">
-              {['All Plants', 'New Arrivals', 'Sale'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`pb-3 transition ${
-                    activeTab === tab 
-                      ? 'text-green-600 font-bold border-b-2 border-green-500 -mb-3' 
-                      : 'text-gray-500 hover:text-green-600'
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-            
-            <div className="flex items-center space-x-2 text-gray-500">
-              <span>Short by:</span>
-              <select className="bg-transparent font-medium text-gray-700 outline-none cursor-pointer">
-                <option>Default sorting</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Product Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((item) => (
-              <div key={item.id} className="group relative bg-gray-50/60 rounded-xl p-4 transition hover:shadow-xl hover:-translate-y-1 duration-300 border border-transparent hover:border-gray-100">
-                
-                {/* Discount Tag */}
-                {item.discount && (
-                  <span className="absolute top-3 left-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded">
-                    {item.discount}
-                  </span>
-                )}
-
-                {/* Product Image */}
-                <div className="relative overflow-hidden rounded-lg mb-4 h-60 bg-white flex items-center justify-center">
-                  <img 
-                    src={item.img} 
-                    alt={item.name} 
-                    className="h-full w-full object-cover group-hover:scale-105 transition duration-500" 
-                  />
-                  
-                  {/* Hover Actions (Figma Style) */}
-                  <div className="absolute bottom-3 left-0 right-0 flex justify-center space-x-2 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <button className="bg-white p-2.5 rounded-lg shadow-md hover:text-green-600 text-gray-700 transition">
-                      <FiShoppingCart className="w-4 h-4" />
-                    </button>
-                    <button className="bg-white p-2.5 rounded-lg shadow-md hover:text-green-600 text-gray-700 transition">
-                      <FiHeart className="w-4 h-4" />
-                    </button>
-                    <button className="bg-white p-2.5 rounded-lg shadow-md hover:text-green-600 text-gray-700 transition">
-                      <FiEye className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <h4 className="text-sm font-semibold text-gray-800">{item.name}</h4>
-                <div className="flex items-center space-x-2 mt-1">
-                  <span className="text-base font-bold text-green-600">{item.price}</span>
-                  {item.oldPrice && (
-                    <span className="text-xs text-gray-400 line-through">{item.oldPrice}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-end space-x-2 mt-10">
-            {[1, 2, 3, 4].map((num) => (
-              <button 
-                key={num} 
-                className={`w-8 h-8 rounded-lg text-xs font-bold transition ${
-                  num === 1 ? 'bg-green-500 text-white' : 'border border-gray-200 text-gray-600 hover:bg-green-50 hover:text-green-600'
-                }`}
+            <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
+              <Button
+                variant="contained"
+                endIcon={<ArrowForward />}
+                href="#projects"
+                className="!bg-gradient-to-r !from-cyan-500 !to-blue-600 hover:!opacity-90 !text-black !font-bold !px-6 !py-3 !rounded-xl !text-sm !normal-case shadow-lg shadow-cyan-500/20"
               >
-                {num}
-              </button>
-            ))}
-            <button className="w-8 h-8 rounded-lg border border-gray-200 text-gray-600 flex items-center justify-center hover:bg-green-50 hover:text-green-600 transition">
-              <FiChevronRight className="w-4 h-4" />
-            </button>
+                Loyihalarim
+              </Button>
+              <Button
+                component="a"
+                href="https://t.me/uzmadaminov"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                startIcon={<Email />}
+                className="!border-gray-800 !text-gray-300 hover:!border-cyan-500/50 hover:!bg-gray-900/50 !px-6 !py-3 !rounded-xl !text-sm !normal-case"
+              >
+                Bog'lanish
+              </Button>
+            </div>
           </div>
 
-        </main>
-
-      </div>
-
-      {/* 4. BLOGS SECTION */}
-      <section className="my-16">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-800">Our Blog Posts</h2>
-          <p className="text-xs text-gray-500 mt-1">We are an online plant shop offering a wide range of cheap and trendy plants.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {posts.map((post) => (
-            <div key={post.id} className="bg-gray-50/60 rounded-xl overflow-hidden border border-gray-100 group">
-              <img src={post.img} alt={post.title} className="h-40 w-full object-cover group-hover:scale-105 transition duration-500" />
-              <div className="p-4 space-y-2">
-                <p className="text-[10px] font-semibold text-green-600">{post.date}</p>
-                <h4 className="text-sm font-bold text-gray-800 group-hover:text-green-600 transition">{post.title}</h4>
-                <p className="text-xs text-gray-500 line-clamp-2">{post.desc}</p>
-                <a href="#" className="inline-flex items-center space-x-1 text-xs font-bold text-gray-800 hover:text-green-600 transition pt-2">
-                  <span>Read More</span>
-                  <FiArrowRight className="w-3 h-3" />
-                </a>
+          <div className="md:col-span-5 flex justify-center">
+            <div className="relative group max-w-[260px] sm:max-w-xs w-full">
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 rounded-3xl blur-md opacity-40 group-hover:opacity-80 transition duration-500" />
+              <div className="relative aspect-[3/4] w-full rounded-3xl overflow-hidden border border-gray-700/80 bg-gray-950 shadow-2xl">
+                <img
+                  src="/face.jpg"
+                  alt="Profile"
+                  className="w-full h-full object-cover filter contrast-105 brightness-95 saturate-105 transition-transform duration-500"
+                />
               </div>
             </div>
-          ))}
+          </div>
+
         </div>
       </section>
-
-      {/* 5. FOOTER */}
-      <footer className="bg-gray-50/80 rounded-t-2xl pt-10 pb-6 px-6 border-t border-gray-100 mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-200">
-          <div className="space-y-2">
-            <h4 className="font-bold text-sm text-gray-800">Garden Care</h4>
-            <p className="text-xs text-gray-500">We are an online plant shop offering a wide range of cheap and trendy plants.</p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-bold text-sm text-gray-800">Plant Renovation</h4>
-            <p className="text-xs text-gray-500">We are an online plant shop offering a wide range of cheap and trendy plants.</p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="font-bold text-sm text-gray-800">Watering Garden</h4>
-            <p className="text-xs text-gray-500">We are an online plant shop offering a wide range of cheap and trendy plants.</p>
-          </div>
-          <div className="space-y-3">
-            <h4 className="font-bold text-sm text-gray-800">Would you like to join newsletters?</h4>
-            <div className="flex">
-              <input type="email" placeholder="enter your email address..." className="bg-white border border-gray-200 rounded-l-md px-3 py-2 text-xs w-full outline-none focus:border-green-500" />
-              <button className="bg-green-500 text-white font-bold text-xs px-4 py-2 rounded-r-md hover:bg-green-600 transition">Join</button>
-            </div>
+      <section className="w-full border-y border-gray-800/80 bg-gray-950/40 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="text-center text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">
+            // Texnologiyalar Steki
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {techStack.map((tech, i) => (
+              <span
+                key={i}
+                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gray-900/80 border border-gray-800 text-gray-300 text-xs font-mono hover:border-cyan-500/50 transition-colors"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center py-6 border-b border-gray-200 space-y-4 md:space-y-0 text-xs text-gray-600">
-          <div className="flex items-center space-x-2">
-            <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">G</div>
-            <span className="font-black text-green-600 tracking-wider">GREENSHOP</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FiMapPin className="text-green-500" />
-            <span>70 West Buckingham Ave. Farmingdale, NY 11735</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FiMail className="text-green-500" />
-            <span>contact@greenshop.com</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <FiPhone className="text-green-500" />
-            <span>+88 01911 717 490</span>
-          </div>
+      </section>
+      <section id="projects" className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-16">
+        <div className="mb-8 text-center sm:text-left">
+          <span className="text-cyan-400 font-mono text-xs uppercase tracking-widest">Portfolio</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tanlangan Loyihalar</h2>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center pt-6 text-[11px] text-gray-500 space-y-3 md:space-y-0">
-          <p>© 2026 GreenShop. All Rights Reserved.</p>
-          <div className="flex space-x-3 text-gray-600">
-            <a href="#" className="p-2 bg-white rounded border border-gray-200 hover:text-green-600"><FaFacebookF /></a>
-            <a href="#" className="p-2 bg-white rounded border border-gray-200 hover:text-green-600"><FaInstagram /></a>
-            <a href="#" className="p-2 bg-white rounded border border-gray-200 hover:text-green-600"><FaTwitter /></a>
-            <a href="#" className="p-2 bg-white rounded border border-gray-200 hover:text-green-600"><FaLinkedinIn /></a>
-            <a href="#" className="p-2 bg-white rounded border border-gray-200 hover:text-green-600"><FaYoutube /></a>
-          </div>
+        <div className="w-full relative px-2 sm:px-8">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={true}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            className="!pb-12 w-full rounded-3xl [&_.swiper-button-next]:!text-cyan-400 [&_.swiper-button-prev]:!text-cyan-400 [&_.swiper-pagination-bullet-active]:!bg-cyan-400 [&_.swiper-pagination-bullet]:!bg-gray-600"
+          >
+            {projectImages.map((imgUrl, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-[280px] sm:h-[420px] md:h-[500px] bg-gray-950 rounded-2xl sm:rounded-3xl overflow-hidden border border-gray-800/80 shadow-2xl relative group">
+                  <img
+                    src={imgUrl}
+                    alt={`Loyiha ${index + 1}`}
+                    className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
+      </section>  
+      <footer className="w-full border-t border-gray-800/80 py-8 text-center text-xs text-gray-500 font-mono">
+        <p>© 2026 Madaminov Shukurullo. React, Tailwind CSS, MUI & Swiper.</p>
       </footer>
 
     </div>
   );
 }
-
-export default App;
